@@ -43,6 +43,11 @@ nav {
     gap: 2rem;
     list-style: none;
     font-size: 1.5rem;
+    background-color: #fafafa; /* Add background color */
+    padding: 0.5rem 2rem; /* Add padding for oval shape */
+    border-radius: 25px; /* Create oval shape */
+    border: 1px solid #d0d0d0; /* Add a subtle border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 a {
