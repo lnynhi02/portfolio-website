@@ -290,7 +290,9 @@ section {
 }
 
 .about-pic {
+    position: relative;
     border-radius: 2rem;
+    top: 50px;
 }
 
 .arrow {
