@@ -369,7 +369,7 @@ article .icon:hover {
 }
 
 .article-container article:nth-child(2) .icon {
-    width: 120px; /* Adjust width as needed */
+    width: 200px; /* Adjust width as needed */
 }
 
 /* PROJECTS SECTION */
