@@ -368,6 +368,10 @@ article .icon:hover {
     transform: scale(1.1); /* Scale the image to 110% on hover */
 }
 
+.article-container article:nth-child(2) .icon {
+    width: 120px; /* Adjust width as needed */
+}
+
 /* PROJECTS SECTION */
 
 #projects {
