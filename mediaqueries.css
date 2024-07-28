@@ -95,7 +95,7 @@
         height: auto; /* Giữ tỷ lệ của ảnh */
         justify-content: center;
         align-items: center;
-        margin: 0 1rem 2rem 1.5rem; /* Thay đổi giá trị 1rem tùy theo nhu cầu */
+        margin: 0 1rem 2rem 5rem; 
     }
     .section__text__p2 {
         font-size: 1.5rem;
