@@ -50,7 +50,7 @@
         margin-bottom: 0;
     }
     article {
-        font-size: 1rem;
+        font-size: 10rem;
     }
     footer nav {
         height: fit-content;
@@ -76,14 +76,33 @@
         gap: 0.5rem;
         text-align: center;
     }
-    .section__pic-container {
+    .menu-links li {
+        margin-top: 0.3rem; /* Giảm khoảng cách giữa các liên kết */
+    }
+    .menu-links a {
+        font-size: 1rem;
+        display: block; /* Đảm bảo mỗi liên kết chiếm một dòng riêng biệt */
+        text-align: center; /* Căn giữa nội dung văn bản */
+    }
+    .section_pic-container {
         width: auto;
-        height: 40vh;
+        height: 60vw;
+        justify-content: center;
+        margin: 2rem auto 2rem;
+    }
+    .section__pic-container {
+        width: auto; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng */
+        height: auto; /* Giữ tỷ lệ của ảnh */
         justify-content: center;
         align-items: center;
+        margin: 0 1rem 2rem 1rem; /* Thay đổi giá trị 1rem tùy theo nhu cầu */
     }
     .section__text__p2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+    }
+    .section__text__p1 {
+        font-size: 1.1rem;
+        margin-top: 20px; /* Điều chỉnh giá trị này theo nhu cầu của bạn */
     }
     .title {
         font-size: 2rem;
@@ -92,4 +111,14 @@
         text-align: justify;
     }
     
+    .about-containers {
+        flex-direction: column; /* Để các phần tử xếp chồng lên nhau */
+        align-items: center; /* Căn giữa các phần tử */
+    }
+
+    .details-container {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+    }
 }
