@@ -384,9 +384,7 @@ article .icon:hover {
 /* PROJECTS SECTION */
 
 #projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    position: relative;
 }
 
 
@@ -396,9 +394,9 @@ article .icon:hover {
 }
 
 .project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
+    width: calc(25% - 2rem); /* Mỗi thẻ sẽ chiếm khoảng 25% chiều rộng, trừ đi khoảng cách */
+    height: auto;
+    margin: 1rem; /* Thêm khoảng cách giữa các thẻ */
 }
 
 .project-title {
