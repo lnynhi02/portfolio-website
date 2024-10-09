@@ -394,9 +394,9 @@ article .icon:hover {
 }
 
 .project-img {
-    width: calc(25% - 2rem); /* Mỗi thẻ sẽ chiếm khoảng 25% chiều rộng, trừ đi khoảng cách */
+    width: calc(90% - 2rem);
     height: auto;
-    margin: 1rem; /* Thêm khoảng cách giữa các thẻ */
+    margin: 1rem;
 }
 
 .project-title {
