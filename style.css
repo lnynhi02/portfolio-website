@@ -394,9 +394,9 @@ article .icon:hover {
 }
 
 .project-img {
-    width: calc(90% - 2rem);
-    height: auto;
-    margin: 1rem;
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
 }
 
 .project-title {
