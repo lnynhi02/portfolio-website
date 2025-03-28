@@ -1,306 +1,471 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yen Nhi Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-</head>
-<body>
-    <nav id="desktop-nav">
-        <div class="logo">Yen Nhi</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Nhi's Portfolio</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">
+               <span class="nav__logo-circle">LN</span>
+               <span class="nav__logo-name">Yen Nhi.</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+               <span class="nav__title">Menu</span>
+
+               <h3 class="nav__name">Nhi</h3>
+
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#home" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#about" class="nav__link">About Me</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#projects" class="nav__link">Projects</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#contact" class="nav__link nav__link-button">Contact Me</a>
+                  </li>
+               </ul>
+
+               <!-- Close Button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__buttons">
+               <!-- Theme button -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+               <!-- Toggle button -->
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-4-line"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== HOME ====================-->
+         <section class="home section" id="home">
+            <div class="home__container container grid">
+               <h1 class="home__name">
+                  Yen Nhi
+               </h1>
+
+               <div class="home__perfil">
+                  <div class="home__image">
+                     <img src="assets/img/home-perfil.png" alt="image" class="home__img">
+                     <div class="home__shadow"></div>
+
+                     <img src="assets/img/curved-arrow.svg" alt="" class="home__arrow">
+                     <img src="assets/img/random-lines.svg" alt="" class="home__line">
+
+                     <div class="geometric-box"></div>
+                  </div>
+
+                  <div class="home__social">
+                     <a href="https://www.instagram.com/_ln.yn_/" target="_blank" class="home__social-link">
+                        <i class="ri-instagram-line"></i>
+                     </a>
+
+                     <a href="https://www.linkedin.com/in/nhide1/" target="_blank" class="home__social-link">
+                        <i class="ri-linkedin-box-line"></i>
+                     </a>
+
+                     <a href="https://github.com/lnynhi02" target="_blank" class="home__social-link">
+                        <i class="ri-github-line"></i>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="home__info">
+                  <p class="home__description">
+                     <b>Data Engineer</b>
+                     <br>
+                     Data-driven, caffeine-fueled, and always curious.
+                  </p>
+
+                  <a href="assets/CV.pdf" download class="cv__button button">Download CV</a>
+
+                  <a href="#about" class="home__scroll">
+                     <div class="home__scroll-box">
+                        <i class="ri-arrow-down-s-line"></i>
+                     </div>
+                     
+                     <span class="home__scroll-text">Scroll Down</span>
+                  </a>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== ABOUT ====================-->
+         <section class="about section" id="about">
+            <div class="about__container container grid">
+               <h2 class="section__title-1">
+                  About Me.
+               </h2>
+
+               <div class="about__perfil">
+                  <div class="about__image">
+                     <img src="assets/img/about-perfil.jpg" alt="image" class="about__img">
+
+                     <div class="about__shadow"></div>
+
+                     <div class="geometric-box"></div>
+                     <img src="assets/img/random-lines.svg" alt="" class="about__line">
+                     <div class="about__box"></div>
+                  </div>
+               </div>
+               <div class="about__info">
+                  <p class="about__description">
+                     Passionate about <b>Data Operations</b>,  
+                     I have <b>hands-on experience</b> in building data pipelines and optimizing ETL workflows  
+                     to transform raw data into actionable insights.  
+                     I can easily lose myself in it for hours—sometimes 12 straight—  
+                     powered by nothing but curiosity and caffeine ☕.
+                     
+                     <br><br>
+                     In tech, staying ahead means continuously learning and adapting,  
+                     so I embrace every opportunity to explore new technologies and sharpen my skills.
+                     <br>  
+                     &#x275D; I dream big, but the bigger the dream, the more naps I need. &#x275E; 
+                  </p>
+
+                  <ul class="about__list">
+                     <li class="about__item">
+                        <b>My Skills Are:</b> Python, PostgreSQL, MySQL, 
+                        Spark, Kafka, Airflow, Azure & 
+                        Docker.
+                     </li>
+                  </ul>
+
+                  <div class="about__buttons">
+                     <a href="#contact" class="button">
+                        <i class="ri-send-plane-line"></i> Contact Me
+                     </a>
+
+                     <a href="https://www.linkedin.com/in/nhide1/" target="_blank" class="button__ghost">
+                        <i class="ri-linkedin-box-line"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!--==================== PROJECTS ====================-->
+         <section class="projects section" id="projects">
+            <h2 class="section__title-1">
+               <span>Projects.</span>
+            </h2>
+
+            <div class="projects__container container grid">
+               <article class="projects__card" data-popup-image="assets/img/project-1.gif">
+                  <div class="projects__image">
+                     <img src="assets/img/550.jpg" alt="image" class="projects__img">
+                     <span class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </span>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Data Pipeline</h3>
+                     <h2 class="projects__title">Streaming Pipeline</h2>
+                  </div>
+
+                  <div class="projects__content-detail">
+                     <h3 class="detail__title">Stream Processing Pipeline</h3>
+                     <p class="detail__description">Real-time data pipeline for analyzing NYC taxi trips, detecting anomalies, and monitoring trends through dynamic dashboards.</p>
+                     <ul class="detail__info">
+                         <li><b>Created - </b><span>August 2024</span></li>
+                         <li><b>Techonologies - </b><span>Python PostgreSQL Spark Kafka PowerBI Docker</span></li>
+                         <li><a href="https://lnynhi02.github.io/stream-processing-pipeline-docs/" target="_blank" class="view-project-link">View Project</a></li>
+                     </ul>
+                 </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/lnynhi02/Stream-Processing-Pipeline" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                     <a href="https://lnynhi02.github.io/stream-processing-pipeline-docs/" target="_blank" class="projects__link">
+                        <i class="ri-dribbble-line"></i> View
+                     </a>
+                  </div>
+               </article>
+
+               <article class="projects__card" data-popup-image="assets/img/project-2.gif">
+                  <div class="projects__image">
+                     <img src="assets/img/project-2.jpg" alt="image" class="projects__img">
+                     <span class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </span>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Data Pipeline</h3>
+                     <h2 class="projects__title">Batch Pipeline</h2>
+                  </div>
+
+                  <div class="projects__content-detail">
+                     <h3 class="detail__title">Web Sraping Data Pipeline</h3>
+                     <p class="detail__description">An ETL project that collects and processes job postings, providing structured data for analysis and insights into the job market.</p>
+                     <ul class="detail__info">
+                         <li><b>Created - </b><span>October 2024</span></li>
+                         <li><b>Techonologies - </b><span>Python PostgreSQL Airflow</span></li>
+                         <li><a href="https://lnynhi02.github.io/web-pipeline-docs/" target="_blank" class="view-project-link">View Project</a></li>
+                     </ul>
+                 </div>
+
+                  <div class="projects__buttons">
+                     <a href="https://github.com/lnynhi02/web-scraping-etl-pipeline" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                     <a href="https://lnynhi02.github.io/web-pipeline-docs/" target="_blank" class="projects__link">
+                        <i class="ri-dribbble-line"></i> View
+                     </a>
+                  </div>
+               </article>
+
+            </div>
+         </section>
+
+         <!-- <section class="projects section" id="projects">
+            <h2 class="section__title-1">
+               <span>Projects.</span>
+            </h2>
+
+            <div class="projects__container container grid">
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/project-1.jpg" alt="image" class="projects__img">
+                     <a href="#" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Website</h3>
+                     <h2 class="projects__title">Restaurant Website</h2>
+
+                     <p class="projects__description">
+                        Project that you carry out in the design 
+                        and structure of the layout, showing the 
+                        design at the client's request.
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="github.com" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                     <a href="domain.com" target="_blank" class="projects__link">
+                        <i class="ri-dribbble-line"></i> View
+                     </a>
+                  </div>
+               </article>
+
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/project-2.jpg" alt="image" class="projects__img">
+                     <a href="#" class="projects__button button">
+                        <i class="ri-arrow-right-up-line"></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">App</h3>
+                     <h2 class="projects__title">Yoga App</h2>
+
+                     <p class="projects__description">
+                        Project that you carry out in the design 
+                        and structure of the layout, showing the 
+                        design at the client's request.
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                     <a href="github.com" target="_blank" class="projects__link">
+                        <i class="ri-github-line"></i> View
+                     </a>
+
+                     <a href="domain.com" target="_blank" class="projects__link">
+                        <i class="ri-dribbble-line"></i> View
+                     </a>
+                  </div>
+               </article>
+
+            </div>
+         </section> -->
+         <!-- ================ Project Popup ================ -->
+         <div class="projects__popup">
+            <div class="projects__popup-inner"><div class="projects__popup-content grid">
+                <span class="projects__popup-close">&times;<i class="uil uil-items"></i></span>
+                <div class="pp__thumbnail">
+                    <img src="" alt="" class="projects__popup-img">
+                </div>
+                <div class="projects__popup-info">
+                    <div class="projects__popup-body">
+                        <h3 class="detail__title">Stream Processing Pipeline</h3>
+                        <p class="detail__description">A short description must be filled here.</p>
+                        <ul class="detail__info">
+                            <li>Created - <span>4 dec 2020</span></li>
+                            <li>Techonologies - <span>python mysql</span></li>
+                            <li><a href="#" target="_blank" class="view-project-link">View Project</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!--==================== CONTACT ====================-->
+         <section class="contact section" id="contact">
+            <div class="contact__container grid">
+               <div class="contact__data">
+                  <h2 class="section__title-2">
+                     <span>Contact Me.</span>
+                  </h2>
+
+                  <p class="contact__description-1">
+                     I will read all emails. Send me any 
+                     message you want and I'll get back to you.
+                  </p>
+
+                  <p class="contact__description-2">
+                     I need your <b>Name</b> and <b>Email Address</b>, but 
+                     you won't receive anything other than your reply.
+                  </p>
+
+                  <div class="geometric-box"></div>
+               </div>
+
+               <div class="contact__mail">
+                  <h2 class="contact__title">
+                     Send Me A Message 
+                  </h2>
+
+                  <form action="" class="contact__form" id="contact-form">
+                     <div class="contact__group">
+                        <div class="contact__box">
+                           <input type="text" name="user_name" class="contact__input" id="name" required placeholder="First Name">
+                           <label for="name" class="contact__label">First Name</label>
+                        </div>
+
+                        <div class="contact__box">
+                           <input type="text" name="user_email" class="contact__input" id="email" required placeholder="Email Address">
+                           <label for="email" class="contact__label">Email Address</label>
+                        </div>
+                     </div>
+                     
+                     <div class="contact__box">
+                        <input type="text" name="user_subject" class="contact__input" id="subject" required placeholder="Subject">
+                        <label for="subject" class="contact__label">Subject</label>
+                     </div>
+
+                     <div class="contact__box contact__area">
+                        <textarea name="user_message" id="message" class="contact__input" required placeholder="Message"></textarea>
+                        <label for="message" class="contact__label">Message</label>
+                     </div>
+
+                     <p class="contact__message" id="contact-message"></p>
+
+                     <button type="submit" class="contact__button button">
+                        <i class="ri-send-plane-line"></i> Send Message
+                     </button>
+                  </form>
+               </div>
+
+               <div class="contact__social">
+                  <img src="assets/img/curved-arrow.svg" alt="" class="contact__social-arrow">
+               
+                  <div class="contact__social-data">
+                     <div>
+                        <p class="contact__social-description-1">
+                           Does not send emails
+                        </p>
+
+                        <p class="contact__social-description-2">
+                           Write me on my social networks
+                        </p>
+                     </div>
+
+                     <div class="contact__social-links">
+                        <a href="facebook.com" target="_blank" class="contact__social-link">
+                           <i class="ri-facebook-circle-line"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/_ln.yn_/" target="_blank" class="contact__social-link">
+                           <i class="ri-instagram-line"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/nhide1/" target="_blank" class="contact__social-link">
+                           <i class="ri-linkedin-box-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer">
+         <div class="footer__container container grid">
+            <ul class="footer__links">
+               <li>
+                  <a href="#about" class="footer__link">About</a>
+               </li>
+               
+               <li>
+                  <a href="#projects" class="footer__link">Projects</a>
+               </li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo"> Yen Nhi</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
-        </div>
-    </nav>
-        <section id="profile">
-            <div class="section_pic-container">
-                <img src="./assets/pic2.png" alt="Yen Nhi profile picture">
-            </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I am</p>
-            <h1 class="title">Yen Nhi</h1>
-            <p class="section__text__p2">Data Engineer</p>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2" 
-                onclick="window.open('assets/CV.pdf')"
-                >
-                Download CV
-                </button>
-                <button 
-                class="btn btn-color-1" 
-                onclick="location.href='./#contact'">
-                Contact Info
-                </button>
-            </div>
-            <div id="socials-container">
-                <img 
-                src="./assets/linkedin.png" 
-                alt="My LinkedIn Profile"
-                class="icon" 
-                onclick="window.open('https://www.linkedin.com/in/nhide1/', '_blank')"
-                />
-                <img 
-                src="./assets/github.png" 
-                alt="My Github Profile"
-                class="icon" 
-                onclick="window.open('https://github.com/lnynhi02', '_blank')"
-                />
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img 
-                src="./assets/programming.gif"
-                alt="Profile Picture" 
-                class="about-pic"
-                />
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img 
-                        src="./assets/experience.png" 
-                        alt="Experience icon"
-                        class="icon"
-                        />
-                        <h3>Experience</h3>
-                        <p>Aspiring <br />Data Engineer</p>
-                    </div>
-                    <div class="details-container">
-                        <img 
-                        src="./assets/education.png" 
-                        alt="Education icon"
-                        class="icon"
-                        />
-                        <h3>Education</h3>
-                        <p>Sai Gon University <br />English Linguistics and Literature</p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p>
-                        Hello! My name is Yen Nhi, and I am an aspiring Data Engineer with a strong passion for problem-solving and technology. 
-                        Transitioning from a bachelor's degree in English Linguistics, I have dedicated significant effort to self-learning, studying the CS50 course, 
-                        building a foundation in Data Structures and Algorithms, practicing on LeetCode, and working on real-world projects in real-time data processing and automated pipelines.
-                        <br><br>
-                        Proficient in Python, SQL, Spark, and  other key Data Engineering tools, I am committed to continuous growth and plan to pursue a second degree in Information Technology. 
-                        My hardworking nature and eagerness to learn drive me to deliver impactful, data-driven solutions in a professional environment.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <img 
-        src="./assets/arrow.png" 
-        alt="Arrow icon" 
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-        />
-    </section>
-<section id="experience">
-    <p class="section__text__p1"> Explore My</p>
-    <h1 class="title"> Experience</h1>
-    <div class="experience-details-container">
-        <div class="about-containers">
-            <div class="details-container">
-                <h2 class="experience-sub-title">Data Engineer</h2>
-                <div class="article-container">
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" 
-                        alt="Python logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" 
-                        alt="MySQL logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" 
-                        alt="PostgreSQL logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" 
-                        alt="Apache Spark logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Apache_kafka-icon.svg" 
-                        alt="Apache Kafka logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                       <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" 
-                        alt="Apache Airflow logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" 
-                        alt="Microsoft Azure logo"
-                        class="icon"
-                        />
-                    </article>
-                    <article>
-                        <img src="assets/Docker.png"
-                        alt="Docker logo"
-                        class="icon" />
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-    <img 
-    src="./assets/arrow.png"
-    alt="Arrow icon"
-    class="icon arrow"
-    onclick="location.href='./#projects'"
-    />
-</section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/data-exploration.jpg"
-                  alt="Project 2"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Data Exploration with SQL</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/LNYN-1508/data-exploration-with-SQL')"
-                >
-                  Github
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/project.3.png" 
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Stream Processing Data Pipeline</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/LNYN-1508/Data-Pipeline-Project')"
-                >
-                  Github
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/project4.png"
-                  alt="Project 4"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Web Sraping Data Pipeline</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/lnynhi02/web-scraping-etl-pipeline')"
-                >
-                  Github
-                </button>
-              </div>
-            </div>  
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img 
-                src="./assets/email.png" 
-                alt="Email icon"
-                class="icon contact-icon email-icon"
-                />
-                <p> <a href="mailto:ynnhi1508@gmail.com">ynnhi1508@gmail.com</a>
-                </p>
-            </div>
-            <div class="contact-info-container">
-                <img 
-                src="./assets/linkedin.png" 
-                alt="LinkedIn icon"
-                class="icon contact-icon"
-                />
-                <p> <a href="https://www.linkedin.com/in/nhide1/" target="_blank">LinkedIn</a>
-                </p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright &#169; 2024 Yen Nhi. All Rights Reserved</p>
-    </footer>
-    <script src="script.js"></script>    
-</body>
+
+            <span class="footer__copy">
+               &#169; All Rights Reserved By 
+               <a href="#">Nhi.</a>
+            </span>
+         </div>
+      </footer>
+
+      <!--========== SCROLL UP ==========-->
+      <a href="#" class="scrollup" id="scroll-up">
+         <i class="ri-arrow-up-s-line"></i>
+      </a>
+
+      <!--=============== SCROLLREVEAL ===============-->
+      <script src="assets/js/scrollreveal.min.js"></script>
+      
+      <!--=============== EMAIL JS ===============-->
+      <script
+         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+      </script>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
 </html>
