@@ -745,7 +745,12 @@ body.dark-theme {
 
 .projects__title {
   font-size: var(--h3-font-size);
-  margin-bottom: .75rem;
+}
+
+.projects__date {
+  font-size: var(--small-font-size);
+  margin-top: -1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .projects__buttons {
@@ -1207,6 +1212,10 @@ body.dark-theme {
     margin: 0 auto;
     justify-content: center;
     padding-bottom: 10px;
+  }
+  
+  .projects__date {
+    margin-top: -1rem;
   }
   
   .projects__popup-inner {
