@@ -3,7 +3,7 @@
   if(!cv||!cv.getContext)return;
   var ctx=cv.getContext('2d');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W=0,H=0,stars=[],shoot=null,nextShoot=3000,mx=0,my=0,t=0,TAU=Math.PI*2;
+  var W=0,H=0,stars=[],shoot=null,nextShoot=2000,mx=0,my=0,t=0,TAU=Math.PI*2;
   function size(){
     var dpr=Math.min(window.devicePixelRatio||1,2);
     W=window.innerWidth;H=window.innerHeight;
@@ -26,7 +26,7 @@
     }
     if(!reduce){
       nextShoot-=dt;
-      if(nextShoot<0&&!shoot){shoot={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,life:0};nextShoot=6000+Math.random()*6000;}
+      if(nextShoot<0&&!shoot){shoot={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,life:0};nextShoot=6000+Math.random()*4000;}
       if(shoot){
         shoot.life+=dt;shoot.x-=dt*.7;shoot.y+=dt*.3;
         a=1-shoot.life/900;

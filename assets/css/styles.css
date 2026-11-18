@@ -44,7 +44,8 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .status{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:15px;background:var(--surface)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--status);box-shadow:0 0 0 0 rgba(249,115,22,.6);animation:pulse 2.4s ease-out infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(249,115,22,0)}100%{box-shadow:0 0 0 0 rgba(249,115,22,0)}}
-.avatar{display:block;width:clamp(144px,20vw,208px);height:clamp(144px,20vw,208px);border-radius:50%;object-fit:cover;margin:32px auto 0;border:3px solid rgba(255,255,255,.6);box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 36px rgba(255,255,255,.28),0 0 90px rgba(255,255,255,.12)}
+.avatar{display:block;width:clamp(144px,20vw,208px);height:clamp(144px,20vw,208px);border-radius:50%;object-fit:cover;margin:32px auto 0;border:3px solid rgba(255,255,255,.6);box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 36px rgba(255,255,255,.28),0 0 90px rgba(255,255,255,.12);animation:avatarGlow 3.6s ease-in-out infinite}
+@keyframes avatarGlow{0%,100%{box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 36px rgba(255,255,255,.28),0 0 90px rgba(255,255,255,.12)}18%{box-shadow:0 0 0 8px rgba(255,255,255,.07),0 0 44px rgba(255,255,255,.34),0 0 104px rgba(255,255,255,.16)}36%{box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 36px rgba(255,255,255,.28),0 0 90px rgba(255,255,255,.12)}52%{box-shadow:0 0 0 8px rgba(255,255,255,.06),0 0 40px rgba(255,255,255,.31),0 0 96px rgba(255,255,255,.14)}70%{box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 36px rgba(255,255,255,.28),0 0 90px rgba(255,255,255,.12)}}
 .hero__greeting{display:block;margin:20px auto 0;font-size:16px;font-weight:600;color:var(--text)}
 .hero__title{width:fit-content;font-size:clamp(20px,2.7vw,26px);font-weight:600;margin:24px auto 0;padding:0;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0))}
 .socials{display:flex;justify-content:center;gap:14px;margin-top:28px}
@@ -217,4 +218,4 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
   nav a{font-size:15px}
   nav a.cta{padding:6px 12px}
 }
-@media (prefers-reduced-motion:reduce){.dot,#space{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.dot,#space,.avatar{animation:none}html{scroll-behavior:auto}}
