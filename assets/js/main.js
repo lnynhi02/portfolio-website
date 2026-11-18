@@ -1,182 +1,140 @@
-/*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
-
-if(navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu')
-    })
-}
-
-if(navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu')
-    })
-}
-
-/*=============== REMOVE MENU MOBILE ===============*/
-const navLink = document.querySelectorAll('.nav__link')
-
-const linkAction = () => {
-    const navMenu = document.getElementById('.nav__menu')
-    navMenu.classList.remove('show-menu')
-}
-
-navLink.forEach(n => n.addEventListener('click', linkAction))
-
-/*=============== SHADOW HEADER ===============*/
-const shadowHeader = () => {
-    const header = document.getElementById('header')
-    this.scrollY >= 50 ? header.classList.add('shadow-header')
-                       : header.classList.remove('shadow-header')
-}
-window.addEventListener('scroll', shadowHeader)
-
-/* ============== PROJECT POPUP ================ */
-document.addEventListener("click", (e) => {
-    const button = e.target.closest(".projects__button"); 
-    if (button) {
-        const projectsItem = button.closest(".projects__card");
-        toggleProjectsPopup();
-        projectsItemDetail(projectsItem);
+(function(){
+  var cv=document.getElementById('space');
+  if(!cv||!cv.getContext)return;
+  var ctx=cv.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,stars=[],shoot=null,nextShoot=3000,mx=0,my=0,t=0,TAU=Math.PI*2;
+  function size(){
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    W=window.innerWidth;H=window.innerHeight;
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(280,W*H/5500));stars=[];
+    for(var i=0;i<n;i++){var z=.2+Math.random()*.8;stars.push({x:Math.random()*W,y:Math.random()*H,z:z,r:z*1.3,ph:Math.random()*TAU,sp:.5+Math.random()*1.5});}
+  }
+  function blob(x,y,r,c){var g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,c);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2);}
+  function draw(dt){
+    var sy=window.scrollY||0,i,s,x,y,a;
+    ctx.clearRect(0,0,W,H);
+    blob(W*.15,H*.8,W*.6,'rgba(255,255,255,.05)');
+    blob(W*.9,H*.15-sy*.1,W*.55,'rgba(200,200,200,.05)');
+    for(i=0;i<stars.length;i++){
+      s=stars[i];
+      x=((s.x+t*.006*s.z+mx*s.z*10)%W+W)%W;y=((s.y-sy*s.z*.2+t*.002*s.z)%H+H)%H;
+      a=.35+.65*(.5+.5*Math.sin(t*.002*s.sp+s.ph));
+      ctx.fillStyle='rgba(255,255,255,'+(a*s.z)+')';
+      ctx.beginPath();ctx.arc(x,y,s.r,0,TAU);ctx.fill();
     }
-});
-
-function toggleProjectsPopup() {
-    document.querySelector(".projects__popup").classList.toggle("open");
-}
-
-document.querySelector(".projects__popup-close").addEventListener("click", toggleProjectsPopup);
-
-function projectsItemDetail(projectsItem) {
-    if (!projectsItem) {
-        console.error("Không tìm thấy .projects__card");
-        return;
+    if(!reduce){
+      nextShoot-=dt;
+      if(nextShoot<0&&!shoot){shoot={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,life:0};nextShoot=6000+Math.random()*6000;}
+      if(shoot){
+        shoot.life+=dt;shoot.x-=dt*.7;shoot.y+=dt*.3;
+        a=1-shoot.life/900;
+        if(a<=0){shoot=null;}else{
+          var g=ctx.createLinearGradient(shoot.x,shoot.y,shoot.x+110,shoot.y-47);
+          g.addColorStop(0,'rgba(255,255,255,'+a+')');g.addColorStop(1,'rgba(255,255,255,0)');
+          ctx.strokeStyle=g;ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(shoot.x,shoot.y);ctx.lineTo(shoot.x+110,shoot.y-47);ctx.stroke();
+        }
+      }
     }
-
-    const popupImage = projectsItem.getAttribute("data-popup-image") || projectsItem.querySelector(".projects__img").src;
-    document.querySelector(".pp__thumbnail img").src = popupImage;
-
-    const contentDetail = projectsItem.querySelector(".projects__content-detail");
-    if (!contentDetail) {
-        console.error("Không tìm thấy .projects__content-detail trong", projectsItem);
-        return;
-    }
-
-    document.querySelector(".projects__popup-body").innerHTML = contentDetail.innerHTML;
-}
-
-/*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById("contact-form");
-const contactMessage = document.getElementById("contact-message");
-
-const sendEmail = (e) => {
+  }
+  var last=0;
+  function loop(ts){var dt=Math.min(ts-last,64);last=ts;t=ts;if(!document.hidden)draw(dt);requestAnimationFrame(loop);}
+  window.addEventListener('pointermove',function(e){mx=e.clientX/W*2-1;my=e.clientY/H*2-1;});
+  window.addEventListener('resize',function(){size();if(reduce)draw(0);});
+  size();
+  if(reduce){draw(0);window.addEventListener('scroll',function(){draw(0);},{passive:true});}else{requestAnimationFrame(loop);}
+})();
+(function(){
+  var btn=document.getElementById('next');
+  var secs=[document.querySelector('.hero'),document.getElementById('about'),document.getElementById('career'),document.getElementById('work'),document.getElementById('contact')];
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function cur(){var y=window.innerHeight*.4,c=0;for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=y)c=i;}return c;}
+  function update(){
+    var last=cur()===secs.length-1||window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4;
+    btn.classList.toggle('up',last);
+    btn.setAttribute('aria-label',last?'Back to top':'Next section');
+  }
+  btn.addEventListener('click',function(){
+    var b=reduce?'auto':'smooth';
+    if(btn.classList.contains('up')){window.scrollTo({top:0,behavior:b});}
+    else{secs[cur()+1].scrollIntoView({behavior:b,block:'start'});}
+  });
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+(function(){
+  var map=[];
+  document.querySelectorAll('nav a[href^="#"]').forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)map.push({a:a,s:s});});
+  function spy(){
+    var y=window.innerHeight*.35,cur=null;
+    map.forEach(function(m){if(m.s.getBoundingClientRect().top<=y)cur=m;});
+    if(map.length&&window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=map[map.length-1];
+    map.forEach(function(m){var on=m===cur;m.a.classList.toggle('active',on);if(on)m.a.setAttribute('aria-current','true');else m.a.removeAttribute('aria-current');});
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  window.addEventListener('resize',spy);
+  spy();
+})();
+(function(){
+  var popup=document.querySelector('.projects__popup');
+  if(!popup)return;
+  var img=popup.querySelector('.projects__popup-img');
+  var title=popup.querySelector('.detail__title');
+  var body=popup.querySelector('.projects__popup-body');
+  var close=popup.querySelector('.projects__popup-close');
+  function open(card){
+    var name=(card.querySelector('h3')||{textContent:''}).textContent;
+    img.src=card.getAttribute('data-popup-image')||'';
+    img.alt=name+' architecture';
+    title.textContent=name;
+    var detail=card.querySelector('.project__detail');
+    body.innerHTML=detail?detail.innerHTML:'';
+    popup.classList.add('open');
+    document.body.classList.add('modal-open');
+    close.focus();
+  }
+  function hide(){
+    popup.classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+  document.addEventListener('click',function(e){
+    if(e.target===popup||e.target.closest('.projects__popup-close')){hide();return;}
+    if(e.target.closest('.projects__popup'))return;
+    if(e.target.closest('.project a'))return;
+    var card=e.target.closest('.project');
+    if(card)open(card);
+  });
+  document.addEventListener('keydown',function(e){
+    if(!popup.classList.contains('open'))return;
+    if(e.key==='Escape')hide();
+    if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('project')){e.preventDefault();open(e.target);}
+  });
+})();
+(function(){
+  var form=document.getElementById('contact-form');
+  if(!form)return;
+  var message=document.getElementById('contact-message');
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-
-    let params = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value,
+    var params={
+      name:document.getElementById('name').value,
+      email:document.getElementById('email').value,
+      subject:document.getElementById('subject').value,
+      message:document.getElementById('message').value
     };
-
-    emailjs.send("service_firhis3", "template_7pkppgf", params, "jlCh7Vr71n0vHJ6_O")
-        .then(() => {
-            contactMessage.textContent = "Message sent successfully ✅";
-
-            setTimeout(() => {
-                contactMessage.textContent = "";
-            }, 5000);
-
-            contactForm.reset();
-        })
-        .catch((error) => {
-            contactMessage.textContent = "Failed to send message ❌";
-            console.error("EmailJS Error:", error);
-        });
-};
-
-contactForm.addEventListener("submit", sendEmail);
-
-
-contactForm.addEventListener('submit', sendEmail)
-/*=============== SHOW SCROLL UP ===============*/ 
-const scrollUp = () => {
-    const scrollUp = document.getElementById('scroll-up')
-    
-    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
-                        : scrollUp.classList.remove('show-scroll')
-}
-
-window.addEventListener('scroll', scrollUp)
-
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
-
-const scrollActive = () => {
-    const scrollDown = window.scrollY
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.getBoundingClientRect().top + window.scrollY - 58,
-              sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
-
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }      
-    })
-}
-
-window.addEventListener('scroll', scrollActive)
-
-/*=============== DARK LIGHT THEME ===============*/ 
-
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const iconTheme = 'ri-sun-line'
-
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
-}
-
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
-
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-})
-
-sr.reveal('.home__perfil, .about__image, .contact__mail', {origin: 'right'})
-sr.reveal(
-    '.home__name, .home__info, .about__container, ' +
-    '.section__title-1, .about__info, ' +
-    '.contact__social, .contact__data',
-    { origin: 'left' }
-  );
-sr.reveal('.projects__card', {interval: 100})
+    if(typeof emailjs==='undefined'){
+      var body='From: '+params.name+' ('+params.email+')\n\n'+params.message;
+      window.location.href='mailto:ynnhi1508@gmail.com?subject='+encodeURIComponent(params.subject)+'&body='+encodeURIComponent(body);
+      return;
+    }
+    emailjs.send('service_firhis3','template_7pkppgf',params,'jlCh7Vr71n0vHJ6_O')
+      .then(function(){
+        message.textContent='Message sent successfully ✅';
+        form.reset();
+        setTimeout(function(){message.textContent='';},5000);
+      })
+      .catch(function(){message.textContent='Failed to send message ❌';});
+  });
+})();
